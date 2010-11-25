@@ -19,6 +19,10 @@ sub rtern {
     return @digits;
 }
 
-while (<>) {
-    say rtern($_);
+if (scalar(@ARGV) > 0) {
+    say rtern($_) for @ARGV;
+} else {
+    while (<>) {
+        say rtern($_);
+    }
 }

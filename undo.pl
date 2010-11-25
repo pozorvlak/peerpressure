@@ -18,7 +18,11 @@ sub undo {
     return $output;
 }
 
-while (<>) {
-    chomp;
-    say undo($_);
+if (scalar(@ARGV) > 0) {
+    say undo($_) for @ARGV;
+} else {
+    while (<>) {
+        chomp;
+        say undo($_);
+    }
 }

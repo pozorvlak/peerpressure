@@ -15,7 +15,7 @@ sub rtern {
         push @digits, $digit;
         $num = ($num - $digit) / 3;
     }
-    return @digits;
+    return join '', @digits;
 }
 
 # Convert channel-format numbers to Earth format.

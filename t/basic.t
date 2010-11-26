@@ -7,7 +7,7 @@ use Test::More;
 use RTern qw<rtern unrtern>;
 
 my @cases = (
-    [0,   '0', todo => { rtern => 'no digits for 0' }],
+    [0,   '0'],
     [1,   '1'],
     [2,   '2'],
     [3,  '01'],

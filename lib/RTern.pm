@@ -10,11 +10,11 @@ our @EXPORT_OK = qw<rtern unrtern>;
 sub rtern {
     my $num = shift;
     my @digits;
-    while ($num > 0) {
+    do {
         my $digit = $num % 3;
         push @digits, $digit;
         $num = ($num - $digit) / 3;
-    }
+    } while $num > 0;
     return join '', @digits;
 }
 

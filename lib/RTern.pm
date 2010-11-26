@@ -2,9 +2,10 @@ package RTern;
 
 use strict;
 use warnings;
+use 5.010;
 
 use Exporter qw<import>;
-our @EXPORT_OK = qw<rtern unrtern>;
+our @EXPORT_OK = qw<ui rtern unrtern>;
 
 # Reverse ternary representation
 sub rtern {
@@ -26,6 +27,18 @@ sub unrtern {
         $num += $digit;
     }
     return $num;
+}
+
+sub ui {
+    my ($function, @argv) = @_;
+    if (@argv) {
+        say $function->($_) for @argv;
+    } else {
+        while (my $line = <>) {
+            chomp $line;
+            say $function->($line);
+        }
+    }
 }
 
 1;

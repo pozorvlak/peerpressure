@@ -5,17 +5,10 @@
 
 use strict;
 use warnings;
-use 5.010;
 
 use FindBin;
 use lib "$FindBin::Bin/lib";
 
-use RTern qw<rtern>;
+use RTern qw<ui rtern>;
 
-if (scalar(@ARGV) > 0) {
-    say rtern($_) for @ARGV;
-} else {
-    while (<>) {
-        say rtern($_);
-    }
-}
+ui(\&rtern, @ARGV);

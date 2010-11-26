@@ -9,12 +9,11 @@ our @EXPORT_OK = qw<rtern unrtern>;
 # Reverse ternary representation
 sub rtern {
     my $num = shift;
+    use integer;
     my @digits;
     do {
-        my $digit = $num % 3;
-        push @digits, $digit;
-        $num = ($num - $digit) / 3;
-    } while $num > 0;
+        push @digits, $num % 3;
+    } while ($num /= 3) > 0;
     return join '', @digits;
 }
 

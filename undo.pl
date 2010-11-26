@@ -4,25 +4,16 @@ use warnings;
 use strict;
 use 5.010;
 
-# Convert channel-format numbers to Earth format.
+use FindBin;
+use lib "$FindBin::Bin/lib";
 
-sub undo {
-    my $num = shift;
-    my @digits = split //, $num;
-    my $output = 0;
-    my $power = 1;
-    for my $digit (@digits) {
-        $output += ($digit * $power);
-        $power *= 3;
-    }
-    return $output;
-}
+use RTern qw<unrtern>;
 
 if (scalar(@ARGV) > 0) {
-    say undo($_) for @ARGV;
+    say unrtern($_) for @ARGV;
 } else {
     while (<>) {
         chomp;
-        say undo($_);
+        say unrtern($_);
     }
 }

@@ -7,17 +7,10 @@ use strict;
 use warnings;
 use 5.010;
 
-# Reverse ternary representation
-sub rtern {
-    my $num = shift;
-    my @digits;
-    while ($num > 0) {
-        my $digit = $num % 3;
-        push @digits, $digit;
-        $num = ($num - $digit) / 3;
-    }
-    return @digits;
-}
+use FindBin;
+use lib "$FindBin::Bin/lib";
+
+use RTern qw<rtern>;
 
 if (scalar(@ARGV) > 0) {
     say rtern($_) for @ARGV;

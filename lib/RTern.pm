@@ -19,15 +19,13 @@ sub rtern {
 
 # Convert channel-format numbers to Earth format.
 sub unrtern {
-    my $num = shift;
-    my @digits = split //, $num;
-    my $output = 0;
-    my $power = 1;
-    for my $digit (@digits) {
-        $output += ($digit * $power);
-        $power *= 3;
+    my $str = shift;
+    my $num = 0;
+    for my $digit (reverse split //, $str) {
+        $num *= 3;
+        $num += $digit;
     }
-    return $output;
+    return $num;
 }
 
 1;
